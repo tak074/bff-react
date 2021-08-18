@@ -1,13 +1,30 @@
 import logo from './logo.svg';
 import './App.css';
+import { useState } from 'react';
+const axios = require('axios');
 
 function App() {
+  const [myState, setMyState] = useState('')
+
+  const signal = () => {
+    let url = process.env.REACT_APP_URL + '/test';
+    axios.get(url)
+    .then((res)=>{
+      console.log(res.data);
+      setMyState(res.data);
+    })
+    .catch(()=> {
+      console.log('err');
+    })
+  }
+
   return (
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
+        <button onClick={() => signal()}>click here</button>
         <p>
-          Edit <code>src/App.js</code> and save to reload.
+          response : {myState}
         </p>
         <a
           className="App-link"
