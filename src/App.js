@@ -7,7 +7,7 @@ function App() {
   const [myState, setMyState] = useState('')
 
   const signal = () => {
-    let url = process.env.REACT_APP_URL + '/test';
+    let url = process.env.OC_BFF_SERVICE_HOST + ':' + process.env.OC_BFF_PORT_3001_TCP_PORT + '/test';
     axios.get(url)
     .then((res)=>{
       console.log(res.data);
