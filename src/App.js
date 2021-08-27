@@ -7,8 +7,8 @@ function App() {
   const [myState, setMyState] = useState('')
 
   const signal = () => {
-    // let url = process.env.REACT_URL;
-    let url = 'http://oc-bff-tworepo.ibmcloud-roks-bnp1arrp-6ccd7f378ae819553d37d5f2ee142bd6-0000.mex01.containers.appdomain.cloud/test';
+    let url = process.env.REACT_APP_URL;
+    // let url = ;
     console.log(process.env.REACT_APP_URL);
     axios.get(url)
     .then((res)=>{
